@@ -23,5 +23,13 @@ jobs:
       - name: Check CSS file
         run: test -f style.css
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run automated tests
+        run: python -m unittest -v test_website.py
+
       - name: CI successful
-        run: echo "HTML and CSS files are present!"
+        run: echo "All website checks and tests passed!"
